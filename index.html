@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>JQgrid</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="assets/vendor/jquery-ui-1.12.1.custom/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/vendor/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/vendor/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/vendor/jqgrid/css/ui.jqgrid-bootstrap-ui.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/vendor/jqgrid/plugins/searchFilter.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/vendor/jqgrid/plugins/ui.multiselect.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container">
+            <h2>JQGrid</h2>
+            <table id="list">
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>
+            </table> 
+            <div id="pager"></div> 
+        </div>
+        <script src="assets/vendor/jqgrid/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+        <script src="assets/vendor/jquery-ui-1.12.1.custom/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="assets/vendor/jqgrid/js/i18n/grid.locale-es.js" type="text/javascript"></script>
+        <script src="assets/vendor/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+        <script src="assets/vendor/jqgrid/plugins/grid.addons.js" type="text/javascript"></script>
+        <script src="assets/vendor/jqgrid/plugins/grid.postext.js" type="text/javascript"></script>
+        <script src="assets/vendor/jqgrid/plugins/grid.setcolumns.js" type="text/javascript"></script>
+        <script src="assets/vendor/jqgrid/plugins/jquery.contextmenu.js" type="text/javascript"></script>
+        <script src="assets/vendor/jqgrid/plugins/jquery.searchFilter.js" type="text/javascript"></script>
+        <script src="assets/vendor/jqgrid/plugins/jquery.tablednd.js" type="text/javascript"></script>
+        <script src="assets/vendor/jqgrid/plugins/ui.multiselect.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#list").jqGrid({
+                    url: "/server/example.php",
+                    datatype: "json",
+                    mtype: "GET",
+                    colNames: ["Inv No", "Date", "Amount", "Tax", "Total", "Notes"],
+                    colModel: [
+                        {name: "invid", width: 55},
+                        {name: "invdate", width: 90},
+                        {name: "amount", width: 80, align: "right"},
+                        {name: "tax", width: 80, align: "right"},
+                        {name: "total", width: 80, align: "right"},
+                        {name: "note", width: 150, sortable: false}
+                    ],
+                    pager: "#pager",
+                    rowNum: 10,
+                    rowList: [10, 20, 30],
+                    sortname: "invid",
+                    sortorder: "desc",
+                    viewrecords: true,
+                    gridview: true,
+                    autoencode: true,
+                    caption: "Tabla de prueba"
+                });
+            });
+        </script>
+    </body>
+</html>
